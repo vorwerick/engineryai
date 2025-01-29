@@ -31,7 +31,7 @@ import kotlin.math.min
 import kotlin.system.exitProcess
 
 
-class Main : KtxGame<KtxScreen>() {
+class Main(val windowed: Boolean) : KtxGame<KtxScreen>() {
 
     override fun create() {
         KtxAsync.initiate()
@@ -39,7 +39,9 @@ class Main : KtxGame<KtxScreen>() {
         addScreen(IntroScreen(this))
         //Gdx.graphics.setWindowedMode(Gdx.graphics.displayMode.width, Gdx.graphics.displayMode.height);
         println("RESOLUTION: "+ Gdx.graphics.displayMode.width +"x"+Gdx.graphics.displayMode.height)
-        Gdx.graphics.setFullscreenMode(Gdx.graphics.displayMode)
+        if(!windowed){
+            Gdx.graphics.setFullscreenMode(Gdx.graphics.displayMode)
+        }
         setScreen<IntroScreen>()
 
     }
