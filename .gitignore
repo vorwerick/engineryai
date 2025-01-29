@@ -2,3 +2,5 @@
 /.gradle/
 /.idea/
 /.kotlin/
+/lwjgl3/build/
+/core/build/
